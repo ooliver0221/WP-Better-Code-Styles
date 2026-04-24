@@ -1,7 +1,7 @@
 # WP-Better-Code-Styles
 洛谷风格内联代码美化 与 Code Block Pro 圆角优化。
 
-## [下载链接]([https://github.com/ooliver0221/WP-Better-Code-Styles/releases/download/1.1/WP-Better-Code-Styles.zip](https://github.com/ooliver0221/WP-Better-Code-Styles/releases/download/1.2/WP-Better-Code-Styles-v1.2.zip))
+## [下载链接](https://github.com/ooliver0221/WP-Better-Code-Styles/releases/download/1.2/WP-Better-Code-Styles-v1.2.zip)
 
 ## 内联代码美化使用方法：
 无需设置
