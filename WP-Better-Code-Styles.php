@@ -3,58 +3,91 @@
 Plugin Name: WP-Better-Code-Styles
 Plugin URI: https://github.com/ooliver0221/WP-Better-Code-Styles
 Description: 洛谷风格内联代码美化 与 Code Block Pro 圆角优化。
-Version: 1.1
+Version: 1.2
 Author: ooliver
 */
 
-if (!defined('ABSPATH')) exit;
+// 防止直接访问
+if (!defined('ABSPATH')) {
+    exit;
+}
 
+/**
+ * 将样式强行注入到页面头部，优先级设为 9999 以确保覆盖主题样式
+ */
 add_action('wp_head', function() {
     ?>
-    <style>
-        /* 1. 内联代码美化 - 固定颜色版 */
-        :not(pre) > code {
-            /* 颜色修改区：这里改成了固定的深灰色和浅灰背景 */
-            color: #476582 !important; 
-            background-color: rgba(27, 31, 35, 0.05) !important;
+    <style type="text/css">
+        /* ============================================================
+           1. 内联代码美化
+           ============================================================ */
+        html body :not(pre) > code {
+            /* 固定颜色：洛谷风格深灰色/红色 */
+            color: #e74c3c !important; 
+            background-color: rgba(231, 76, 60, 0.08) !important;
             
+            /* 字体排版 */
             font-family: Consolas, Monaco, "Courier New", monospace !important;
             font-size: 0.9em !important;
-            font-weight: 600 !important;
+            font-weight: bold !important;
             word-break: break-all !important;
             
             /* 核心修改：加大背景 */
-            padding: 4px 8px !important;
+            padding: 3px 8px !important;
             border-radius: 6px !important;
             margin: 0 4px !important;
             
-            box-shadow: none !important;          
-            border: none !important;              
+            /* 清除默认样式并增加极细边框 */
+            box-shadow: none !important;
+            border: 1px solid rgba(231, 76, 60, 0.15) !important;
+            display: inline !important;
         }
 
-        /* 2. Code Block Pro 整体圆角优化 */
-        .code-block-round {
+        /* ============================================================
+           2. Code Block Pro 自动圆角
+           ============================================================ */
+        html body div[class*="code-block-pro"],
+        html body .wp-block-kevin-batdorf-code-block-pro {
             border-radius: 12px !important;
             overflow: hidden !important;
-            border: 1px solid rgba(0, 0, 0, 0.1) !important;
-            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05) !important;
+            border: 1px solid rgba(0, 0, 0, 0.08) !important;
+            box-shadow: 0 6px 18px rgba(0, 0, 0, 0.05) !important;
+            margin-bottom: 1.6em !important;
+            transform: translateZ(0);
         }
 
-        .code-block-round pre {
+        /* 内部 pre 标签圆角 */
+        html body div[class*="code-block-pro"] pre {
             border-radius: 12px !important;
+            border: none !important;
+            margin: 0 !important;
         }
 
-        /* 顶部标题栏圆角 */
-        .code-block-round .cbp-header {
-            border-top-left-radius: 12px !important;
-            border-top-right-radius: 12px !important;
+        /* 标题栏圆角 */
+        html body div[class*="code-block-pro"] .cbp-header {
+            border-radius: 12px 12px 0 0 !important;
+            border-bottom: 1px solid rgba(0, 0, 0, 0.05) !important;
         }
 
         /* 底部栏圆角 */
-        .code-block-round .cbp-footer {
-            border-bottom-left-radius: 12px !important;
-            border-bottom-right-radius: 12px !important;
+        html body div[class*="code-block-pro"] .cbp-footer {
+            border-radius: 0 0 12px 12px !important;
+            border-top: 1px solid rgba(0, 0, 0, 0.05) !important;
+        }
+
+        /* ============================================================
+           3. 冲突修复 (防止内联样式影响代码块内部)
+           ============================================================ */
+        html body div[class*="code-block-pro"] pre code {
+            background: transparent !important;
+            color: inherit !important;
+            padding: 0 !important;
+            border-radius: 0 !important;
+            margin: 0 !important;
+            border: none !important;
+            font-weight: normal !important;
+            display: inline !important;
         }
     </style>
     <?php
-}, 100);
+}, 9999); // 9999 优先级确保它是最后一个加载的样式
