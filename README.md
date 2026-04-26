@@ -5,7 +5,8 @@
 ---
 
 
-## [下载链接](https://github.com/ooliver0221/WP-Better-Code-Styles/releases/download/1.2/WP-Better-Code-Styles-v1.2.zip)
+## [下载链接](https://github.com/ooliver0221/WP-Better-Code-Styles/releases/download/1.3/WP-Better-Code-Styles-v1.3.zip)
+
 
 ---
 
@@ -21,17 +22,4 @@
 
 ## ⚙️ 自定义设置
 
-如果你想修改颜色或圆角大小，可以直接编辑插件文件中的 CSS 部分：
-
-### 1. 修改内联代码颜色
-找到以下代码段并修改十六进制色值或 RGBA 透明度：
-```css
-color: #e74c3c !important;                 /* 文字颜色 (当前为洛谷红) */
-background-color: rgba(231, 76, 60, 0.08) !important; /* 背景颜色 (0.08 为透明度) */
-```
-
-### 2. 修改代码块圆角
-搜索 ```12px``` 并统一替换为你喜欢的数值（如 ```8px``` 或 ```16px```）：
-```css
-border-radius: 12px !important;
-```
+如果你想修改颜色或圆角大小，可以直接在设置中找到 WP-Better-Code-Styles 代码样式设置 并修改。
