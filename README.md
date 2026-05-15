@@ -1,6 +1,7 @@
 # WP-Better-Code-Styles
 
-<img width="1024" height="1024" alt="image" src="https://github.com/user-attachments/assets/2742a11d-65ce-477b-86ce-3428c6156607" />
+<img width="100" height="100" alt="782b0fc8ad28fc9b9862733940dd67c0" src="https://github.com/user-attachments/assets/11cb2d0c-79d1-4290-9765-b1649bcb2b5f" />
+
 
 🚀 **一个为 WordPress 打造的轻量级样式优化插件，专为提升代码阅读体验而生。**
 本插件旨在解决使用 **Code Block Pro** 插件时的样式繁琐配置问题，并为正文中的 **内联代码** 提供美观的洛谷风格化修饰。
